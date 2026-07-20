@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MicroSOFT Uninstaller - Официальный сайт</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --card-bg: #111111;
+            --accent-blue: #3b5998;
+            --accent-hover: #2d4373;
+            --text-main: #ffffff;
+            --text-muted: #bbbbbb;
+            --btn-green: #2a751c;
+            --btn-green-hover: #1e5213;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Верхняя декоративная панель с волнами */
+        .top-bar {
+            width: 100%;
+            background-color: var(--accent-blue);
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .top-bar h1 {
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: 2px;
+        }
+
+        /* Главный контейнер */
+        .container {
+            max-width: 800px;
+            width: 90%;
+            margin: 40px auto;
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        .warning-box {
+            border-left: 4px solid #ff4444;
+            background-color: rgba(255, 68, 68, 0.1);
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 0 4px 4px 0;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        /* Кнопки */
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .btn-download {
+            background-color: var(--btn-green);
+            color: white;
+            text-decoration: none;
+            padding: 15px 35px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: background 0.2s;
+            box-shadow: 0 4px 15px rgba(42, 117, 28, 0.4);
+        }
+
+        .btn-download:hover {
+            background-color: var(--btn-green-hover);
+        }
+
+        .btn-license {
+            background-color: transparent;
+            color: var(--text-muted);
+            border: 1px solid #444;
+            padding: 12px 25px;
+            font-size: 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-license:hover {
+            color: white;
+            border-color: var(--text-muted);
+            background-color: rgba(255,255,255,0.05);
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 20px;
+            color: #555;
+            font-size: 12px;
+        }
+
+        /* Модальное окно Лицензии MIT */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #151515;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 600px;
+            width: 85%;
+            max-height: 70vh;
+            overflow-y: auto;
+            text-align: left;
+            border: 1px solid #333;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .modal-header h3 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            color: white;
+        }
+
+        .license-text {
+            font-family: monospace;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #ccc;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <h1>~~~ MicroSOFT Uninstaller System ~~~</h1>
+    </div>
+
+    <div class="container">
+        <h2>MicroSOFT</h2>
+        
+        <p class="description">
+            Это деинсталлятор системных приложений, который удаляет ненужные вам программы и компоненты Windows. 
+            Утилита позволяет легко очищать UWP-пакеты, временные папки кэша (Temp, SoftwareDistribution), компоненты Xbox, 
+            а также проводить экспериментальные тесты по отключению встроенных системных служб.
+        </p>
+
+        <div class="warning-box">
+            <strong>Внимание!</strong> Удаление некоторых встроенных приложений может привести к системным ошибкам или сбоям. 
+            Пользуйтесь вкладкой «Тесты» с осторожностью и запускайте программу на виртуальной машине или делайте точки восстановления системы!
+        </div>
+
+        <div class="buttons-container">
+            <!-- Замени "MicroSOFT.zip" на реальное имя твоего архива, если оно отличается -->
+            <a href="MicroSOFT.zip" class="btn-download" download>Скачать Portable (.ZIP)</a>
+            <button class="btn-license" id="openLicense">Лицензия MIT</button>
+        </div>
+    </div>
+
+    <!-- Модальное окно с лицензией -->
+    <div class="modal" id="licenseModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>MIT License</h3>
+                <button class="close-btn" id="closeLicense">&times;</button>
+            </div>
+            <div class="license-text">MIT License
+
+Copyright (c) 2026 cosmoboyyn
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 MicroSOFT Uninstaller. Разработано cosmoboyyn.
+    </footer>
+
+    <script>
+        const modal = document.getElementById('licenseModal');
+        const openBtn = document.getElementById('openLicense');
+        const closeBtn = document.getElementById('closeLicense');
+
+        // Открыть окно лицензии
+        openBtn.onclick = function() {
+            modal.style.display = "flex";
+        }
+
+        // Закрыть окно при клике на крестик
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Закрыть окно при клике в любое место вне окна
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
